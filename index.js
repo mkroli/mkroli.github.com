@@ -12,10 +12,10 @@ $(function() {
 		toggleLink.click(function() {
 			if (visible) {
 				toggleLink.css('background-image', 'url("plus.png")');
-				description.slideUp();
+				description.hide();
 			} else {
 				toggleLink.css('background-image', 'url("minus.png")');
-				description.slideDown();
+				description.show();
 			}
 			visible = !visible;
 		});
