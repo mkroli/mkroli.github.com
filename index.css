@@ -88,7 +88,19 @@ body {
 	color: black;
 }
 
+#content ul {
+	margin: 0;
+}
+
+#content li {
+	display: block;
+	margin-left: -2em;
+}
+
 #content .togglelink {
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 1em;
 	cursor: pointer;
 	display: inline;
 }
