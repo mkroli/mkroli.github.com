@@ -9,15 +9,18 @@ $(function() {
 	/* Menu */
 	var anchor = getAnchor();
 	var currentContent = anchor == null ? 'Projects' : anchor;
-	$('#content > div.content').each(function(index, element) {
-		var id = $(element).attr('id');
-		$('#content > #tabs').append('<li id="' + id + '">' + id + '</li>');
-		if (id != currentContent) {
-			$(element).hide();
-			$('#content > #tabs > li#' + id).addClass('other');
-		} else
-			$('#content > #tabs > li#' + id).addClass('current');
-	});
+	$('#content > div.content').each(
+			function(index, element) {
+				var id = $(element).attr('id');
+				$('#content > #tabs').append(
+						'<li id="' + id + '">' + id.replace(/_/g, ' ')
+								+ '</li>');
+				if (id != currentContent) {
+					$(element).hide();
+					$('#content > #tabs > li#' + id).addClass('other');
+				} else
+					$('#content > #tabs > li#' + id).addClass('current');
+			});
 	$('#content > #tabs > li').each(
 			function(index, element) {
 				$(element).click(
