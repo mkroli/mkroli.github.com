@@ -8,7 +8,8 @@ function getAnchor() {
 $(function() {
 	/* Menu */
 	var anchor = getAnchor();
-	var currentContent = anchor == null ? 'Projects' : anchor;
+	var currentContent = anchor == null || anchor.length < 1 ? 'Projects' : anchor.substring(1);
+	$('#content').prepend('<ul id="tabs"></ul>');
 	$('#content > div.content').each(
 			function(index, element) {
 				var id = $(element).attr('id');
@@ -25,12 +26,12 @@ $(function() {
 			function(index, element) {
 				$(element).click(
 						function() {
-							$('#content > #tabs > li').removeClass('current')
-									.addClass('other');
-							$(this).removeClass('other').addClass('current');
 							var newContent = $(this).attr('id')
-							document.location.hash = '#' + newContent;
 							if (currentContent != newContent) {
+								$('#content > #tabs > li').removeClass('current')
+										.addClass('other');
+								$(this).removeClass('other').addClass('current');
+								document.location.hash = '#_' + newContent;
 								$('#content > #' + currentContent).fadeOut(
 										function() {
 											$('#content > #' + newContent)
