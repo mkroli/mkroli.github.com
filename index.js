@@ -5,24 +5,45 @@ function getAnchor() {
 		return document.location.hash.substring(1);
 }
 
+function preload(images, callback) {
+	var countdownLatch = images.length;
+	for(var i=0; i<images.length; i++) {
+		var img = new Image();
+		img.src = images[i];
+		img.onload = img.onerror = img.onabort = function() {
+			countdownLatch--;
+			if(0 == countdownLatch)
+				callback();
+		}
+	}
+}
+
 $(function() {
 	/* Display loading message */
+	$('#github').hide();
 	$('#content').hide();
 	$('body').append('<h1 id="loading">Loading...Please Wait</h1>');
 
 	function displayContent() {
 		$('#loading').remove();
+		$('#github').show();
 		$('#content').show();
 	}
 
-	/* Impressum */
-	$.get('impressum.html', null, function(data) {
-		$('#content > #footer').before(data);
-		createMenu();
-		createDescription();
+	/* Preloading stuff */
+	preload(['background.png',
+		'plus.png',
+		'minus.png',
+		'https://a248.e.akamai.net/assets.github.com/img/4c7dc970b89fd04b81c8e221ba88ff99a06c6b61/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67',
+		'http://www.xing.com/img/buttons/10_en_btn.gif'], function() {
+		$.get('impressum.html', null, function(data) {
+			$('#content > #footer').before(data);
+			createMenu();
+			createDescription();
 
-		displayContent();
-	}, 'html');
+			displayContent();
+		}, 'html');
+	});
 
 	function createMenu() {
 		var anchor = getAnchor();
