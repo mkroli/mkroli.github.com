@@ -41,7 +41,7 @@ body {
 	position: fixed;
 	top: 0px;
 	width: 100%;
-	text-shadow: 0px 0px 8px white;
+	text-shadow: -1px -1px 0 rgba(0,0,0,.5), 1px 1px 0 rgba(255,255,255,.5), 0px 0px 8px white;
 	font-size: xx-large;
 	text-align: center;
 	font-weight: bold;
@@ -68,12 +68,11 @@ body {
 	/* IE6-8 */
 	box-shadow: 0 0 10px 5px black;
 	margin-bottom: 1em;
-	text-shadow: 0px 0px 8px white;
 }
 
 #header a {
 	text-decoration: none;
-	color: black;
+	color: #303030;
 }
 
 #github {
@@ -84,9 +83,12 @@ body {
 }
 
 #loading {
+	position: fixed;
+	width: 100%;
 	margin: auto;
-	margin-top: 5em;
+	top: 5em;
 	text-align: center;
+	z-index: -1;
 }
 
 #content {
