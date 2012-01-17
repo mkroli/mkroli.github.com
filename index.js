@@ -11,9 +11,8 @@ $(function() {
 	$('body').append('<h1 id="loading">Loading...Please Wait</h1>');
 
 	function displayContent() {
-		$('#loading').fadeOut(function() {
-			$('#content').fadeIn();
-		});
+		$('#loading').remove();
+		$('#content').show();
 	}
 
 	/* Impressum */
