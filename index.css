@@ -37,7 +37,9 @@ body {
 	/* IE6-8 */
 }
 
-#header {
+a#header {
+	text-decoration: none;
+	color: #303030;
 	position: fixed;
 	top: 0px;
 	width: 100%;
@@ -68,11 +70,6 @@ body {
 	/* IE6-8 */
 	box-shadow: 0 0 10px 5px black;
 	margin-bottom: 1em;
-}
-
-#header a {
-	text-decoration: none;
-	color: #303030;
 }
 
 #github {
