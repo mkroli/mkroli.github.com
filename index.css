@@ -83,6 +83,12 @@ body {
 	z-index: 1;
 }
 
+#loading {
+	margin: auto;
+	margin-top: 5em;
+	text-align: center;
+}
+
 #content {
 	background-image: url("background.png");
 	background-repeat: repeat;
