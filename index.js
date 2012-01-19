@@ -105,8 +105,14 @@ $(function() {
 			});
 		});
 
+		$('#content .projectlink').mouseover(function(eventObject) {
+			var gradient = 'linear-gradient(top, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0) 75%)';
+			var prefix = ['', '-moz-', '-webkit-'];
+			for(var i in prefix)
+				$(this).css('background', prefix[i] + gradient);
+		});
 		$('#content .projectlink').mousedown(function(eventObject) {
-			var gradient = 'linear-gradient(top, rgba(255,255,255,0.3) 0%,rgba(255,255,255,0.2) 75%)';
+			var gradient = 'linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.2) 75%)';
 			var prefix = ['', '-moz-', '-webkit-'];
 			for(var i in prefix)
 				$(this).css('background', prefix[i] + gradient);

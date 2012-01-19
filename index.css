@@ -167,9 +167,11 @@ a#header {
 }
 
 #content .description {
+	margin-top: .2em;
+	margin-bottom: .5em;
 	margin-left: 1em;
 	border: 1px solid black;
-	padding: 4px;
+	padding: 8px;
 	background-color: rgba(0, 10, 50, .2);
 }
 
