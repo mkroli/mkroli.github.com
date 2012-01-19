@@ -104,5 +104,36 @@ $(function() {
 				visible = !visible;
 			});
 		});
+
+		$('#content .projectlink').mousedown(function(eventObject) {
+			var gradient = 'linear-gradient(top, rgba(255,255,255,0.3) 0%,rgba(255,255,255,0.2) 75%)';
+			var prefix = ['', '-moz-', '-webkit-'];
+			for(var i in prefix)
+				$(this).css('background', prefix[i] + gradient);
+			$(this).css({
+				'margin-top' : '3px',
+				'margin-bottom' : '1px',
+				'margin-left' : '3px',
+				'margin-right' : '1px',
+				'box-shadow' : '0 0 4px black'
+			});
+			return false;
+		});
+		var onmouseup = function(eventObject) {
+			var gradient = 'linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 75%)';
+			var prefix = ['', '-moz-', '-webkit-'];
+			for(var i in prefix)
+				$(this).css('background', prefix[i] + gradient);
+			$(this).css({
+				'margin-top' : '2px',
+				'margin-bottom' : '2px',
+				'margin-left' : '2px',
+				'margin-right' : '2px',
+				'box-shadow' : '1px 1px 4px black'
+			});
+		};
+		$('.projectlink').mouseleave(onmouseup);
+		$('.projectlink').mouseup(onmouseup);
+		$('.projectlink').each(onmouseup);
 	}
 });
