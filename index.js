@@ -19,6 +19,18 @@ function preload(images, callback) {
 }
 
 $(function() {
+	var onResize = function() {
+		var em = parseFloat($('body').css('font-size'));
+		$('.content').css('height',
+			$(window).height()
+			- $('#content').offset().top
+			- $('#tabs').height()
+			- $('#footer').height()
+			- 1 * em
+			- 1 * em);
+	};
+	$(window).resize(onResize);
+
 	/* Display loading message */
 	$('#github').hide();
 	$('#content').hide();
@@ -42,6 +54,7 @@ $(function() {
 			createDescription();
 
 			displayContent();
+			onResize();
 		}, 'html');
 	});
 
@@ -96,10 +109,10 @@ $(function() {
 			toggleLink.click(function() {
 				if (visible) {
 					toggleLink.css('background-image', 'url("plus.png")');
-					description.hide();
+					description.slideUp();
 				} else {
 					toggleLink.css('background-image', 'url("minus.png")');
-					description.show();
+					description.slideDown();
 				}
 				visible = !visible;
 			});
