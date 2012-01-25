@@ -7,12 +7,12 @@ function getAnchor() {
 
 function preload(images, callback) {
 	var countdownLatch = images.length;
-	for(var i=0; i<images.length; i++) {
+	for ( var i = 0; i < images.length; i++) {
 		var img = new Image();
 		img.src = images[i];
 		img.onload = img.onerror = img.onabort = function() {
 			countdownLatch--;
-			if(0 == countdownLatch)
+			if (0 == countdownLatch)
 				callback();
 		}
 	}
@@ -21,15 +21,17 @@ function preload(images, callback) {
 $(function() {
 	var onResize = function() {
 		var em = parseFloat($('body').css('font-size'));
-		$('.content').css('height',
-			$(window).height()
-			- $('#content').offset().top
-			- $('#tabs').height()
-			- $('#footer').height()
-			- 1 * em
-			- 1 * em);
+		$('.content').css(
+				'height',
+				$(window).height() - $('#content').offset().top
+						- $('#tabs').height() - $('#footer').height() - 1 * em
+						- 1 * em);
 	};
 	$(window).resize(onResize);
+
+	$('#header, #github, #footer a').mousedown(function() {
+		return false;
+	});
 
 	/* Display loading message */
 	$('#github').hide();
@@ -43,25 +45,29 @@ $(function() {
 	}
 
 	/* Preloading stuff */
-	preload(['background.png',
-		'plus.png',
-		'minus.png',
-		'https://a248.e.akamai.net/assets.github.com/img/4c7dc970b89fd04b81c8e221ba88ff99a06c6b61/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67',
-		'http://www.linkedin.com/img/webpromo/btn_in_20x15.png',
-		'http://www.xing.com/img/buttons/10_en_btn.gif'], function() {
-		$.get('impressum.html', null, function(data) {
-			$('#content > #footer').before(data);
-			createMenu();
-			createDescription();
+	preload(
+			[
+					'background.png',
+					'plus.png',
+					'minus.png',
+					'https://a248.e.akamai.net/assets.github.com/img/4c7dc970b89fd04b81c8e221ba88ff99a06c6b61/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67',
+					'http://www.linkedin.com/img/webpromo/btn_in_20x15.png',
+					'http://www.xing.com/img/buttons/10_en_btn.gif' ],
+			function() {
+				$.get('impressum.html', null, function(data) {
+					$('#content > #footer').before(data);
+					createMenu();
+					createDescription();
 
-			displayContent();
-			onResize();
-		}, 'html');
-	});
+					displayContent();
+					onResize();
+				}, 'html');
+			});
 
 	function createMenu() {
 		var anchor = getAnchor();
-		var currentContent = anchor == null || anchor.length < 1 ? 'Projects' : anchor.substring(1);
+		var currentContent = anchor == null || anchor.length < 1 ? 'Projects'
+				: anchor;
 		$('#content').prepend('<ul id="tabs"></ul>');
 		$('#content > div.content').each(
 				function(index, element) {
@@ -81,10 +87,11 @@ $(function() {
 							function() {
 								var newContent = $(this).attr('id')
 								if (currentContent != newContent) {
-									$('#content > #tabs > li').removeClass('current')
-											.addClass('other');
-									$(this).removeClass('other').addClass('current');
-									document.location.hash = '#_' + newContent;
+									$('#content > #tabs > li').removeClass(
+											'current').addClass('other');
+									$(this).removeClass('other').addClass(
+											'current');
+									document.location.hash = '#' + newContent;
 									$('#content > #' + currentContent).fadeOut(
 											function() {
 												$('#content > #' + newContent)
@@ -119,30 +126,34 @@ $(function() {
 			});
 		});
 
-		$('#content .projectlink').mouseover(function(eventObject) {
-			var gradient = 'linear-gradient(top, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0) 75%)';
-			var prefix = ['', '-moz-', '-webkit-'];
-			for(var i in prefix)
-				$(this).css('background', prefix[i] + gradient);
-		});
-		$('#content .projectlink').mousedown(function(eventObject) {
-			var gradient = 'linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.2) 75%)';
-			var prefix = ['', '-moz-', '-webkit-'];
-			for(var i in prefix)
-				$(this).css('background', prefix[i] + gradient);
-			$(this).css({
-				'margin-top' : '3px',
-				'margin-bottom' : '1px',
-				'margin-left' : '3px',
-				'margin-right' : '1px',
-				'box-shadow' : '0 0 4px black'
-			});
-			return false;
-		});
+		$('#content .projectlink')
+				.mouseover(
+						function(eventObject) {
+							var gradient = 'linear-gradient(top, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0) 75%)';
+							var prefix = [ '', '-moz-', '-webkit-' ];
+							for ( var i in prefix)
+								$(this).css('background', prefix[i] + gradient);
+						});
+		$('#content .projectlink')
+				.mousedown(
+						function(eventObject) {
+							var gradient = 'linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.2) 75%)';
+							var prefix = [ '', '-moz-', '-webkit-' ];
+							for ( var i in prefix)
+								$(this).css('background', prefix[i] + gradient);
+							$(this).css({
+								'margin-top' : '3px',
+								'margin-bottom' : '1px',
+								'margin-left' : '3px',
+								'margin-right' : '1px',
+								'box-shadow' : '0 0 4px black'
+							});
+							return false;
+						});
 		var onmouseup = function(eventObject) {
 			var gradient = 'linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 75%)';
-			var prefix = ['', '-moz-', '-webkit-'];
-			for(var i in prefix)
+			var prefix = [ '', '-moz-', '-webkit-' ];
+			for ( var i in prefix)
 				$(this).css('background', prefix[i] + gradient);
 			$(this).css({
 				'margin-top' : '2px',
