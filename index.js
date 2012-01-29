@@ -92,11 +92,8 @@ $(function() {
 									$(this).removeClass('other').addClass(
 											'current');
 									document.location.hash = '#' + newContent;
-									$('#content > #' + currentContent).fadeOut(
-											function() {
-												$('#content > #' + newContent)
-														.fadeIn();
-											});
+									$('#content > #' + newContent).show();
+									$('#content > #' + currentContent).hide();
 									currentContent = newContent;
 								}
 							});
