@@ -25,7 +25,7 @@ $(function() {
 				'height',
 				$(window).height() - $('#content').offset().top
 						- $('#tabs').height() - $('#footer').height() - 1 * em
-						- 1 * em);
+						- 2 * em);
 	};
 	$(window).resize(onResize);
 
