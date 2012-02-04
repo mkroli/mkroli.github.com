@@ -24,8 +24,7 @@ $(function() {
 		$('.content').css(
 				'height',
 				$(window).height() - $('#content').offset().top
-						- $('#tabs').height() - $('#footer').height() - 1 * em
-						- 2 * em);
+						- $('#tabs').height() - $('#footer').height() - 1 * em);
 	};
 	$(window).resize(onResize);
 
@@ -47,8 +46,7 @@ $(function() {
 	/* Preloading stuff */
 	preload(
 			[
-					'body_bg.png',
-					'content_bg.png',
+					'background.png',
 					'plus.png',
 					'minus.png',
 					'https://a248.e.akamai.net/assets.github.com/img/4c7dc970b89fd04b81c8e221ba88ff99a06c6b61/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67',
@@ -127,7 +125,8 @@ $(function() {
 				.mouseover(
 						function(eventObject) {
 							var gradient = 'linear-gradient(top, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0) 75%)';
-							var prefix = [ '', '-moz-', '-webkit-' ];
+							var prefix = [ '', '-moz-', '-webkit-', '-o-',
+									'-ms-' ];
 							for ( var i in prefix)
 								$(this).css('background', prefix[i] + gradient);
 						});
@@ -135,7 +134,7 @@ $(function() {
 				.mousedown(
 						function(eventObject) {
 							var gradient = 'linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.2) 75%)';
-							var prefix = [ '', '-moz-', '-webkit-' ];
+							var prefix = [ '', '-moz-', '-webkit-', '-o-' ];
 							for ( var i in prefix)
 								$(this).css('background', prefix[i] + gradient);
 							$(this).css({
