@@ -121,44 +121,48 @@ $(function() {
 			});
 		});
 
-		$('#content .projectlink')
-				.mouseover(
-						function(eventObject) {
-							var gradient = 'linear-gradient(top, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0) 75%)';
-							var prefix = [ '', '-moz-', '-webkit-', '-o-',
-									'-ms-' ];
-							for ( var i in prefix)
-								$(this).css('background', prefix[i] + gradient);
-						});
-		$('#content .projectlink')
-				.mousedown(
-						function(eventObject) {
-							var gradient = 'linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.2) 75%)';
-							var prefix = [ '', '-moz-', '-webkit-', '-o-' ];
-							for ( var i in prefix)
-								$(this).css('background', prefix[i] + gradient);
-							$(this).css({
-								'margin-top' : '3px',
-								'margin-bottom' : '1px',
-								'margin-left' : '3px',
-								'margin-right' : '1px',
-								'box-shadow' : '0 0 4px black'
-							});
-							return false;
-						});
-		var onmouseup = function(eventObject) {
-			var gradient = 'linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 75%)';
-			var prefix = [ '', '-moz-', '-webkit-' ];
-			for ( var i in prefix)
-				$(this).css('background', prefix[i] + gradient);
-			$(this).css({
-				'margin-top' : '2px',
-				'margin-bottom' : '2px',
-				'margin-left' : '2px',
-				'margin-right' : '2px',
-				'box-shadow' : '1px 1px 4px black'
-			});
+		var setGradient = function(button, gradient) {
+			var gradientPrefix = [ '', '-moz-', '-webkit-', '-o-', '-ms-' ];
+			for ( var i in gradientPrefix)
+				$(button).css('background', gradientPrefix[i] + gradient);
 		};
+		var setPosition = function(button, pressed) {
+			var topleft = '2';
+			var bottomright = '2';
+			var shadow = '1px 1px';
+			if (pressed) {
+				topleft = '3';
+				bottomright = '1';
+				shadow = '0 0';
+			}
+			$(button).css({
+				'margin-top' : topleft + 'px',
+				'margin-bottom' : bottomright + 'px',
+				'margin-left' : topleft + 'px',
+				'margin-right' : bottomright + 'px',
+				'box-shadow' : shadow + ' 4px black'
+			});
+		}
+		var onmouseover = function(eventObject) {
+			setGradient(
+					this,
+					'linear-gradient(top, rgba(255, 255, 255, 0.5) 0%,rgba(150, 200, 250, 0.5) 50%)');
+		};
+		var onmousedown = function(eventObject) {
+			setGradient(
+					this,
+					'linear-gradient(top, rgba(170, 210, 250, 0.5) 0%,rgba(200, 225, 250, 0.5) 50%)');
+			setPosition(this, true);
+			return false;
+		};
+		var onmouseup = function(eventObject) {
+			setGradient(
+					this,
+					'linear-gradient(top, rgba(200, 225, 250, 0.5) 0%,rgba(150, 200, 250, 0.5) 50%)');
+			setPosition(this, false);
+		};
+		$('.projectlink').mousedown(onmousedown);
+		$('.projectlink').mouseover(onmouseover);
 		$('.projectlink').mouseleave(onmouseup);
 		$('.projectlink').mouseup(onmouseup);
 		$('.projectlink').each(onmouseup);

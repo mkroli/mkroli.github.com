@@ -167,10 +167,10 @@ a#header {
 	display: table;
 	border: 1px solid black;
 	text-decoration: none;
-	padding: 4px;
+	padding: 2px;
 	padding-left: 8px;
 	padding-right: 8px;
-	border-radius: 10px;
+	border-radius: 4px;
 }
 
 #footer {
