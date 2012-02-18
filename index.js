@@ -21,10 +21,12 @@ function preload(images, callback) {
 $(function() {
 	var onResize = function() {
 		var em = parseFloat($('body').css('font-size'));
-		$('.content').css(
-				'height',
-				$(window).height() - $('#content').offset().top
-						- $('#tabs').height() - $('#footer').height() - 1 * em);
+		var height = $(window).height() - $('#contentContainer').offset().top
+				- $('#footer').height() - .5 * em;
+		$('#contentContainer').css('height', height);
+		$('.content').css('height', height);
+		var currentContent = $('#content > #tabs > li.current').attr('id');
+		$('#contentContainer').scrollTo('#' + currentContent);
 	};
 	$(window).resize(onResize);
 
@@ -53,7 +55,7 @@ $(function() {
 					'http://www.xing.com/img/buttons/10_en_btn.gif' ],
 			function() {
 				$.get('impressum.html', null, function(data) {
-					$('#content > #footer').before(data);
+					$('#contentContainer').append(data);
 					createMenu();
 					createDescription();
 
@@ -65,19 +67,19 @@ $(function() {
 	function createMenu() {
 		var anchor = getAnchor();
 		var currentContent = anchor == null || anchor.length < 1 ? 'Projects'
-				: anchor;
+				: anchor.substr(1);
 		$('#content').prepend('<ul id="tabs"></ul>');
-		$('#content > div.content').each(
+		$('#contentContainer > div.content').each(
 				function(index, element) {
 					var id = $(element).attr('id');
 					$('#content > #tabs').append(
 							'<li id="' + id + '">' + id.replace(/_/g, ' ')
 									+ '</li>');
-					if (id != currentContent) {
-						$(element).hide();
-						$('#content > #tabs > li#' + id).addClass('other');
-					} else
+					if (id == currentContent) {
 						$('#content > #tabs > li#' + id).addClass('current');
+					} else {
+						$('#content > #tabs > li#' + id).addClass('other');
+					}
 				});
 		$('#content > #tabs > li').each(
 				function(index, element) {
@@ -89,37 +91,48 @@ $(function() {
 											'current').addClass('other');
 									$(this).removeClass('other').addClass(
 											'current');
-									document.location.hash = '#' + newContent;
-									$('#content > #' + newContent).show();
-									$('#content > #' + currentContent).hide();
+									document.location.hash = '#_' + newContent;
+									$('#contentContainer').scrollTo(
+											'#' + newContent, 500);
 									currentContent = newContent;
 								}
 							});
 				});
+
+		$(document).keypress(function(eventObject) {
+			if (eventObject.keyCode == 37) {
+				console.log('left key pressed');
+			} else if (eventObject.keyCode == 39) {
+				console.log('right key pressed');
+			}
+		});
 	}
 
 	function createDescription() {
-		$('#content > .content > ul > li').each(function(index, element) {
-			var toggleLink = $(element).find('.togglelink');
-			var description = $(element).find('.description');
-			var link = $(description).find('a.projectlink');
-			var visible = false;
+		$('#contentContainer > .content > ul > li').each(
+				function(index, element) {
+					var toggleLink = $(element).find('.togglelink');
+					var description = $(element).find('.description');
+					var link = $(description).find('a.projectlink');
+					var visible = false;
 
-			toggleLink.css('background-image', 'url("plus.png")');
-			link.text("Project's page");
-			description.hide();
-
-			toggleLink.click(function() {
-				if (visible) {
 					toggleLink.css('background-image', 'url("plus.png")');
-					description.slideUp();
-				} else {
-					toggleLink.css('background-image', 'url("minus.png")');
-					description.slideDown();
-				}
-				visible = !visible;
-			});
-		});
+					link.text("Project's page");
+					description.hide();
+
+					toggleLink.click(function() {
+						if (visible) {
+							toggleLink.css('background-image',
+									'url("plus.png")');
+							description.slideUp();
+						} else {
+							toggleLink.css('background-image',
+									'url("minus.png")');
+							description.slideDown();
+						}
+						visible = !visible;
+					});
+				});
 
 		var setGradient = function(button, gradient) {
 			var gradientPrefix = [ '', '-moz-', '-webkit-', '-o-', '-ms-' ];

@@ -82,6 +82,10 @@ a#header {
 	padding-right: .5em;
 }
 
+#contentContainer {
+	overflow: hidden;
+}
+
 .content {
 	overflow: auto;
 	padding-right: .5em;

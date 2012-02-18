@@ -7,6 +7,7 @@
 <link rel="icon" href="favicon.png" type="image/png">
 <link rel="stylesheet" type="text/css" href="index.css">
 <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="jquery.scrollTo-1.4.2-min.js"></script>
 <script type="text/javascript" src="index.js"></script>
 </head>
 <body>
@@ -16,88 +17,90 @@
 		alt="Fork me on GitHub"></a>
 	<a id="header" href="https://github.com/mkroli">mkroli.github.com</a>
 	<div id="content">
-		<div class="content" id="Projects">
-			<h2>Projects</h2>
-			<ul>
-				<li>
-					<div class="togglelink">websum</div>
-					<div class="description">
-						websum calculates the md5 checksum of the content behind urls. <a
-							class="projectlink" href="https://github.com/mkroli/websum"></a>
-					</div>
-				</li>
-				<li>
-					<div class="togglelink">waitfile</div>
-					<div class="description">
-						waitfile waits for files beeing deleted. <a class="projectlink"
-							href="https://github.com/mkroli/waitfile"></a>
-					</div>
-				</li>
-				<li>
-					<div class="togglelink">pam_groupmember</div>
-					<div class="description">
-						PAM module that checks groupmemberships. <a class="projectlink"
-							href="https://github.com/mkroli/pam_groupmember"></a>
-					</div>
-				</li>
-				<li>
-					<div class="togglelink">innet</div>
-					<div class="description">
-						A small utility to check if host is in a specific net. <a
-							class="projectlink" href="https://github.com/mkroli/innet"></a>
-					</div>
-				</li>
-				<li>
-					<div class="togglelink">RotatingCounter</div>
-					<div class="description">
-						With RotatingCounter one can count events at the moment they
-						occur. RotatingCounter can then calculate the sum of events over a
-						given period. It will automatically expire too old events. <a
-							class="projectlink"
-							href="http://mkroli.github.com/RotatingCounter"></a>
-					</div>
-				</li>
-			</ul>
-		</div>
-		<div class="content" id="Patches">
-			<h2>Patches</h2>
-			<ul>
-				<li>
-					<div class="togglelink">abook</div>
-					<div class="description">
-						Abook is an addressbook program. This version adds the ability to
-						import vCards. <a class="projectlink"
-							href="https://github.com/mkroli/abook"></a>
-					</div>
-				</li>
-				<li>
-					<div class="togglelink">pam_ldap</div>
-					<div class="description">
-						The pam_ldap module provides LDAP authentication and authorization
-						for PAM. This version adds an additional configuration option to
-						compare the login name with the ldap uid. This is to make the
-						authentication process case sensitive. <a class="projectlink"
-							href="https://github.com/mkroli/pam_ldap"></a>
-					</div>
-				</li>
-				<li>
-					<div class="togglelink">knockd_patch</div>
-					<div class="description">
-						This patch enables the knockd configuration to have multiple
-						"command" and "stop_command" lines. <a class="projectlink"
-							href="https://github.com/mkroli/knockd_patch"></a>
-					</div>
-				</li>
-				<li>
-					<div class="togglelink">icmptx</div>
-					<div class="description">
-						ICMPTX provides a tunnel via ICMP protocol. This version changes
-						the default behavior of aborting on "sendto()" failed to
-						continuing. <a class="projectlink"
-							href="https://github.com/mkroli/icmptx"></a>
-					</div>
-				</li>
-			</ul>
+		<div id="contentContainer">
+			<div class="content" id="Projects">
+				<h2>Projects</h2>
+				<ul>
+					<li>
+						<div class="togglelink">websum</div>
+						<div class="description">
+							websum calculates the md5 checksum of the content behind urls. <a
+								class="projectlink" href="https://github.com/mkroli/websum"></a>
+						</div>
+					</li>
+					<li>
+						<div class="togglelink">waitfile</div>
+						<div class="description">
+							waitfile waits for files beeing deleted. <a class="projectlink"
+								href="https://github.com/mkroli/waitfile"></a>
+						</div>
+					</li>
+					<li>
+						<div class="togglelink">pam_groupmember</div>
+						<div class="description">
+							PAM module that checks groupmemberships. <a class="projectlink"
+								href="https://github.com/mkroli/pam_groupmember"></a>
+						</div>
+					</li>
+					<li>
+						<div class="togglelink">innet</div>
+						<div class="description">
+							A small utility to check if host is in a specific net. <a
+								class="projectlink" href="https://github.com/mkroli/innet"></a>
+						</div>
+					</li>
+					<li>
+						<div class="togglelink">RotatingCounter</div>
+						<div class="description">
+							With RotatingCounter one can count events at the moment they
+							occur. RotatingCounter can then calculate the sum of events over
+							a given period. It will automatically expire too old events. <a
+								class="projectlink"
+								href="http://mkroli.github.com/RotatingCounter"></a>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="content" id="Patches">
+				<h2>Patches</h2>
+				<ul>
+					<li>
+						<div class="togglelink">abook</div>
+						<div class="description">
+							Abook is an addressbook program. This version adds the ability to
+							import vCards. <a class="projectlink"
+								href="https://github.com/mkroli/abook"></a>
+						</div>
+					</li>
+					<li>
+						<div class="togglelink">pam_ldap</div>
+						<div class="description">
+							The pam_ldap module provides LDAP authentication and
+							authorization for PAM. This version adds an additional
+							configuration option to compare the login name with the ldap uid.
+							This is to make the authentication process case sensitive. <a
+								class="projectlink" href="https://github.com/mkroli/pam_ldap"></a>
+						</div>
+					</li>
+					<li>
+						<div class="togglelink">knockd_patch</div>
+						<div class="description">
+							This patch enables the knockd configuration to have multiple
+							"command" and "stop_command" lines. <a class="projectlink"
+								href="https://github.com/mkroli/knockd_patch"></a>
+						</div>
+					</li>
+					<li>
+						<div class="togglelink">icmptx</div>
+						<div class="description">
+							ICMPTX provides a tunnel via ICMP protocol. This version changes
+							the default behavior of aborting on "sendto()" failed to
+							continuing. <a class="projectlink"
+								href="https://github.com/mkroli/icmptx"></a>
+						</div>
+					</li>
+				</ul>
+			</div>
 		</div>
 		<div id="footer">
 			&copy; 2012 Michael Krolikowski <a
