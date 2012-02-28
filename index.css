@@ -112,6 +112,10 @@ a#header {
 	box-shadow: 0 0 4px rgba(0, 0, 0, .5), inset 0 -2px 2px
 		rgba(255, 255, 255, .75);
 	cursor: pointer;
+	-webkit-transition: background-color .25s ease, box-shadow .25s ease, padding-bottom .25s ease;
+	-moz-transition: background-color .25s ease, box-shadow .25s ease, padding-bottom .25s ease;
+	-o-transition: background-color .25s ease, box-shadow .25s ease, padding-bottom .25s ease;
+	transition: background-color .25s ease, box-shadow .25s ease, padding-bottom .25s ease;
 }
 
 #content #tabs li.other:hover {
