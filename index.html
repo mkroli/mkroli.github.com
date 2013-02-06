@@ -1,164 +1,286 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="author" content="Michael Krolikowski" />
 <title>Michael Krolikowski's GitHub Profile</title>
-<link rel="icon" href="favicon.png" type="image/png">
-<link rel="stylesheet" type="text/css" href="index.css">
-<script type="text/javascript" src="jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="jquery.scrollTo-1.4.2-min.js"></script>
-<script type="text/javascript" src="index.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link
+	href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap.min.css"
+	rel="stylesheet">
+<style type="text/css">
+#footer {
+	border-top: 1px solid #e5e5e5;
+	background-color: #f5f5f5;
+	margin-top: 20px;
+	padding: 20px 0;
+	text-align: right;
+}
+
+.affix {
+	top: 20px;
+}
+
+.doc-separator {
+	margin: 20px 0 40px;
+}
+
+@media ( max-width : 767px) {
+	#footer {
+		margin-left: -20px;
+		margin-right: -20px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	.affix {
+		position: static;
+		width: auto;
+	}
+}
+</style>
+<link
+	href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap-responsive.min.css"
+	rel="stylesheet">
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script type="text/javascript"
+	src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/bootstrap.min.js"></script>
 </head>
 <body>
-	<a id="github" href="https://github.com/mkroli"><img
-		style="position: absolute; top: 0; right: 0; border: 0;"
-		src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"
-		alt="Fork me on GitHub"></a>
-	<a id="header" href="https://github.com/mkroli">mkroli.github.com</a>
-	<div id="content">
-		<div id="contentContainer">
-			<div class="content" id="Projects">
-				<h2>Projects</h2>
-				<ul>
-					<li>
-						<div class="togglelink">websum</div>
-						<div class="description">
-							websum calculates the md5 checksum of the content behind urls. <a
-								class="projectlink" href="https://github.com/mkroli/websum"></a>
+	<div class="container">
+		<div class="row">
+			<div class="span12 page-header">
+				<h1>mkroli.github.com</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span3 affix-top" data-spy="affix" data-offset-top="100">
+				<ul class="nav nav-tabs nav-stacked">
+					<li><a href="#number_series_solver">number-series-solver</a></li>
+					<li><a href="#scrooge_maven_plugin">scrooge-maven-plugin</a></li>
+					<li><a href="#longest_prefix_match">Longest Prefix Match</a></li>
+					<li><a href="#rotating_counter">RotatingCounter</a></li>
+					<li><a href="#phonetics">Phonetics</a></li>
+					<li><a href="#innet">innet</a></li>
+					<li><a href="#websum">websum</a></li>
+					<li><a href="#waitfile">waitfile</a></li>
+					<li><a href="#pam_groupmember">pam_groupmember</a></li>
+					<li><a href="#icmptx">icmptx</a></li>
+					<li><a href="#pam_ldap">pam_ldap</a></li>
+					<li><a href="#knockd_patch">knockd_patch</a></li>
+					<li><a href="#abook">abook</a>
+				</ul>
+			</div>
+			<div class="span3"></div>
+
+			<div class="span9">
+				<div class="container-fluid">
+					<h2>Projects</h2>
+
+					<div class="row-fluid">
+						<div id="number_series_solver" class="span6">
+							<h3>number-series-solver</h3>
+							Number-series-solver can detect patterns in number series. It
+							gives the found algorithm as well as the number which it thinks
+							would come next.
+							<div>
+								<div class="btn-group">
+									<a class="btn"
+										href="http://content.wuala.com/contents/mkroli/public/number-series-solver/number-series-solver.jnlp">Web
+										Start</a>
+									<button class="btn dropdown-toggle" data-toggle="dropdown">
+										<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu">
+										<li><a
+											href="https://github.com/mkroli/number-series-solver">Repository</a></li>
+									</ul>
+								</div>
+							</div>
 						</div>
-					</li>
-					<li>
-						<div class="togglelink">waitfile</div>
-						<div class="description">
-							waitfile waits for files beeing deleted. <a class="projectlink"
-								href="https://github.com/mkroli/waitfile"></a>
-						</div>
-					</li>
-					<li>
-						<div class="togglelink">pam_groupmember</div>
-						<div class="description">
-							PAM module that checks groupmemberships. <a class="projectlink"
-								href="https://github.com/mkroli/pam_groupmember"></a>
-						</div>
-					</li>
-					<li>
-						<div class="togglelink">innet</div>
-						<div class="description">
-							A small utility to check if host is in a specific net. <a
-								class="projectlink" href="https://github.com/mkroli/innet"></a>
-						</div>
-					</li>
-					<li>
-						<div class="togglelink">RotatingCounter</div>
-						<div class="description">
-							With RotatingCounter one can count events at the moment they
-							occur. RotatingCounter can then calculate the sum of events over
-							a given period. It will automatically expire too old events. <a
-								class="projectlink"
-								href="http://mkroli.github.com/RotatingCounter"></a>
-						</div>
-					</li>
-					<li>
-						<div class="togglelink">Longest Prefix Match</div> <a
-						href="http://travis-ci.org/mkroli/lpm"><img
-							src="https://secure.travis-ci.org/mkroli/lpm.png?branch=master"
-							alt="Build Status" /></a>
-						<div class="description">
-							Longest Prefix Match is an implementation of an associative array
-							which doesn't associate keys to values using either the equals()
-							or the hashCode(). Instead it compares the beginning of a String
-							with the containing keys. The longest possible match will be
-							associated and the value be returned. <a class="projectlink"
-								href="http://mkroli.github.com/lpm/"></a>
-						</div>
-					</li>
-					<li>
-						<div class="togglelink">Phonetics</div>
-						<div class="description">
-							An implementation of <a
-								href="http://en.wikipedia.org/wiki/Phonetic_algorithm">phonetic
-								algorithms</a> (currently only the <a
-								href="http://de.wikipedia.org/wiki/K%C3%B6lner_Phonetik">"Koelner
-								Phonetics"</a>). <a class="projectlink"
-								href="https://github.com/mkroli/phonetics"></a>
-						</div>
-					</li>
-					<li>
-						<div class="togglelink">scrooge-maven-plugin</div>
-						<div class="description">
+
+						<div id="scrooge_maven_plugin" class="span6">
+							<h3>scrooge-maven-plugin</h3>
 							A <a href="http://maven.apache.org/">Maven</a> Plugin around <a
 								href="https://github.com/twitter/scrooge">Scrooge</a>. It will
 							take <a href="http://thrift.apache.org/">thrift</a> idl-files and
 							compile them using Scrooge to either <a
 								href="http://www.oracle.com/technetwork/java/index.html">Java</a>
-							or <a href="http://www.scala-lang.org/">Scala</a> source files. <a
-								class="projectlink"
-								href="http://mkroli.github.com/scrooge-maven-plugin/"></a>
+							or <a href="http://www.scala-lang.org/">Scala</a> source files.<br />
+							<div>
+								<div class="btn-group">
+									<a class="btn"
+										href="http://mkroli.github.com/scrooge-maven-plugin/">Project
+										Page</a>
+									<button class="btn dropdown-toggle" data-toggle="dropdown">
+										<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu">
+										<li><a
+											href="https://github.com/mkroli/scrooge-maven-plugin">Repository</a></li>
+									</ul>
+								</div>
+							</div>
 						</div>
-					</li>
-					<li>
-						<div class="togglelink">number-series-solver</div>
-						<div class="description">
-							Number-series-solver can detect patterns in number series. It
-							gives the found algorithm as well as the number which it thinks
-							would come next. <a
-								href="http://content.wuala.com/contents/mkroli/public/number-series-solver/number-series-solver.jnlp">Web
-								Start</a> <a class="projectlink"
-								href="https://github.com/mkroli/number-series-solver"></a>
+					</div>
+
+					<div class="row-fluid">
+						<div id="longest_prefix_match" class="span6">
+							<h3>Longest Prefix Match</h3>
+							Longest Prefix Match is an implementation of an associative array
+							which doesn't associate keys to values using either the equals()
+							or the hashCode(). Instead it compares the beginning of a String
+							with the containing keys. The longest possible match will be
+							associated and the value be returned.
+							<div>
+								<div class="btn-group">
+									<a class="btn" href="http://mkroli.github.com/lpm/">Project
+										Page</a>
+									<button class="btn dropdown-toggle" data-toggle="dropdown">
+										<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu">
+										<li><a href="https://github.com/mkroli/lpm">Repository</a></li>
+										<li><a href="http://travis-ci.org/mkroli/lpm">Travis
+												CI <img
+												src="https://secure.travis-ci.org/mkroli/lpm.png?branch=master"
+												alt="Build Status" />
+										</a></li>
+									</ul>
+								</div>
+							</div>
 						</div>
-					</li>
-				</ul>
-			</div>
-			<div class="content" id="Patches">
-				<h2>Patches</h2>
-				<ul>
-					<li>
-						<div class="togglelink">abook</div>
-						<div class="description">
-							Abook is an addressbook program. This version adds the ability to
-							import vCards. <a class="projectlink"
-								href="https://github.com/mkroli/abook"></a>
+
+						<div id="rotating_counter" class="span6">
+							<h3>RotatingCounter</h3>
+							With RotatingCounter one can count events at the moment they
+							occur. RotatingCounter can then calculate the sum of events over
+							a given period. It will automatically expire too old events.
+							<div>
+								<div class="btn-group">
+									<a class="btn" href="http://mkroli.github.com/RotatingCounter/">Project
+										Page</a>
+									<button class="btn dropdown-toggle" data-toggle="dropdown">
+										<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu">
+										<li><a href="https://github.com/mkroli/RotatingCounter">Repository</a></li>
+									</ul>
+								</div>
+							</div>
 						</div>
-					</li>
-					<li>
-						<div class="togglelink">pam_ldap</div>
-						<div class="description">
+					</div>
+
+					<div class="row-fluid">
+						<div id="phonetics" class="span6">
+							<h3>Phonetics</h3>
+							An implementation of <a
+								href="http://en.wikipedia.org/wiki/Phonetic_algorithm">phonetic
+								algorithms</a> (currently only the <a
+								href="http://de.wikipedia.org/wiki/K%C3%B6lner_Phonetik">"Koelner
+								Phonetics"</a>).
+							<div>
+								<a class="btn" href="https://github.com/mkroli/phonetics">Repository</a>
+							</div>
+						</div>
+
+						<div id="innet" class="span6">
+							<h3>innet</h3>
+							A small utility to check if host is in a specific net.
+							<div>
+								<a class="btn" href="https://github.com/mkroli/innet">Repository</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="row-fluid">
+						<div id="websum" class="span6">
+							<h3>websum</h3>
+							websum calculates the md5 checksum of the content behind urls.
+							<div>
+								<a class="btn" href="https://github.com/mkroli/websum">Repository</a>
+							</div>
+						</div>
+
+						<div id="waitfile" class="span6">
+							<h3>waitfile</h3>
+							waitfile waits for files beeing deleted.
+							<div>
+								<a class="btn" href="https://github.com/mkroli/waitfile">Repository</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="row-fluid">
+						<div id="pam_groupmember" class="span6">
+							<h3>pam_groupmember</h3>
+							PAM module that checks groupmemberships.
+							<div>
+								<a class="btn" href="https://github.com/mkroli/pam_groupmember">Repository</a>
+							</div>
+						</div>
+					</div>
+
+					<hr class="doc-separator">
+					<h2>Patches</h2>
+					<div class="row-fluid">
+						<div id="icmptx" class="span6">
+							<h3>icmptx</h3>
+							ICMPTX provides a tunnel via ICMP protocol. This version changes
+							the default behavior of aborting on "sendto()" failed to
+							continuing.
+							<div>
+								<a class="btn" href="https://github.com/mkroli/icmptx">Repository</a>
+							</div>
+						</div>
+
+						<div id="pam_ldap" class="span6">
+							<h3>pam_ldap</h3>
 							The pam_ldap module provides LDAP authentication and
 							authorization for PAM. This version adds an additional
 							configuration option to compare the login name with the ldap uid.
-							This is to make the authentication process case sensitive. <a
-								class="projectlink" href="https://github.com/mkroli/pam_ldap"></a>
+							This is to make the authentication process case sensitive.
+							<div>
+								<a class="btn" href="https://github.com/mkroli/pam_ldap">Repository</a>
+							</div>
 						</div>
-					</li>
-					<li>
-						<div class="togglelink">knockd_patch</div>
-						<div class="description">
+					</div>
+
+					<div class="row-fluid">
+						<div id="knockd_patch" class="span6">
+							<h3>knockd_patch</h3>
 							This patch enables the knockd configuration to have multiple
-							"command" and "stop_command" lines. <a class="projectlink"
-								href="https://github.com/mkroli/knockd_patch"></a>
+							"command" and "stop_command" lines.
+							<div>
+								<a class="btn" href="https://github.com/mkroli/knockd_patch">Repository</a>
+							</div>
 						</div>
-					</li>
-					<li>
-						<div class="togglelink">icmptx</div>
-						<div class="description">
-							ICMPTX provides a tunnel via ICMP protocol. This version changes
-							the default behavior of aborting on "sendto()" failed to
-							continuing. <a class="projectlink"
-								href="https://github.com/mkroli/icmptx"></a>
+
+						<div id="abook" class="span6">
+							<h3>abook</h3>
+							Abook is an addressbook program. This version adds the ability to
+							import vCards.
+							<div>
+								<a class="btn" href="https://github.com/mkroli/abook">Repository</a>
+							</div>
 						</div>
-					</li>
-				</ul>
+					</div>
+				</div>
 			</div>
 		</div>
-		<div id="footer" class="vcard">
-			&copy; 2012 <span class="fn">Michael Krolikowski</span> <span
-				class="nickname" style="display: none;">mkroli</span> <a class="url"
-				style="display: none;" href="http://mkroli.github.com"></a> <a
-				href="http://www.xing.com/profile/Michael_Krolikowski"
-				target="_blank" rel="me" class="url"><img
-				src="http://www.xing.com/img/buttons/10_en_btn.gif" width="85"
-				height="23" alt="Michael Krolikowski"></img></a>
+	</div>
+
+	<div id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="span12 vcard">
+					&copy; 2013 <span class="fn">Michael Krolikowski</span> <span
+						class="nickname" style="display: none;">mkroli</span> <a
+						class="url" style="display: none;" href="http://mkroli.github.com"></a>
+					<a href="http://www.xing.com/profile/Michael_Krolikowski"
+						target="_blank" rel="me" class="url"><img
+						src="http://www.xing.com/img/buttons/10_en_btn.gif" width="85"
+						height="23" alt="Michael Krolikowski"></img></a>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>
