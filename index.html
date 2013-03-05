@@ -47,7 +47,7 @@
 					<h2>{{category.category}}</h2>
 					<div class="row-fluid" ng-repeat="grouped in category.repositories">
 						<div class="span6" ng-repeat="repository in grouped"
-							ng-show="repository" id="{{repository.id}}">
+							ng-show="repository" id="{{nameToId(repository.name)}}">
 							<h3>{{repository.name}}</h3>
 							<p class="description"
 								ng-bind-html-unsafe="markdown(repository.description)" />
