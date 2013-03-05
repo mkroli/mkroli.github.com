@@ -5,7 +5,9 @@ function RepositoriesController($scope) {
 		"Thrift" : "http://thrift.apache.org/",
 		"Java" : "http://www.oracle.com/technetwork/java/index.html",
 		"Scala" : "http://www.scala-lang.org/",
-		"PAM" : "http://en.wikipedia.org/wiki/Pluggable_Authentication_Modules"
+		"PAM" : "http://en.wikipedia.org/wiki/Pluggable_Authentication_Modules",
+		"Brainfuck" : "http://en.wikipedia.org/wiki/Brainfuck",
+		"Ook!" : "http://www.dangermouse.net/esoteric/ook.html"
 	};
 
 	$scope.repositories = [
@@ -52,6 +54,15 @@ function RepositoriesController($scope) {
 							"url" : "http://travis-ci.org/mkroli/lpm",
 							"name" : "Travis CI ![Build Status](https://secure.travis-ci.org/mkroli/lpm.png?branch=master)"
 						} ]
+			},
+			{
+				"name" : "Brainfuck",
+				"category" : "Projects",
+				"description" : "[Brainfuck] and [Ook!] converter and interpreter.",
+				"links" : [ {
+					"url" : "https://github.com/mkroli/brainfuck",
+					"name" : "Repository"
+				} ]
 			},
 			{
 				"name" : "RotatingCounter",
