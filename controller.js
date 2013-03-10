@@ -52,7 +52,7 @@ function RepositoriesController($scope) {
 						},
 						{
 							"url" : "http://travis-ci.org/mkroli/lpm",
-							"name" : "Travis CI ![Build Status](https://secure.travis-ci.org/mkroli/lpm.png?branch=master)"
+							"name" : "Travis CI ![Build Status](https://api.travis-ci.org/mkroli/lpm.png?branch=master)"
 						} ]
 			},
 			{
