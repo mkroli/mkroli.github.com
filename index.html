@@ -23,16 +23,19 @@
 <script src="controller.js"></script>
 </head>
 <body ng-app>
+	<a class="hidden-phone" href="https://github.com/mkroli"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
 	<div class="container">
 		<div class="row">
 			<div class="span12 page-header">
 				<h1>
-					mkroli<small>.github.com</small>
+					<img class="img-rounded" src="https://secure.gravatar.com/avatar/4ef56176ae6880333ec5b95eacb07436?s=80" />
+					mkroli<small class="hidden-phone">.github.com</small>
 				</h1>
 			</div>
 		</div>
 		<div class="row" ng-controller="RepositoriesController">
-			<div class="span3 affix-top" data-spy="affix" data-offset-top="100">
+			<div class="span3 affix-top" data-spy="affix" data-offset-top="140">
 				<ul class="nav nav-tabs nav-stacked">
 					<li ng-repeat="repository in repositories"><a
 						ng-href="#{{nameToId(repository.name)}}">{{repository.name}}</a></li>
@@ -61,7 +64,7 @@
 										<span class="caret"></span>
 									</button>
 									<ul class="dropdown-menu">
-										<li ng-repeat="link in repository.links.from(1)"><a
+										<li ng-repeat="link in repository.links"><a
 											ng-href="{{link.url}}"
 											ng-bind-html-unsafe="markdown(link.name)"></a></li>
 									</ul>
