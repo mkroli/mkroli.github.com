@@ -13,6 +13,8 @@
 <script
 	src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.0.3/angular.min.js"></script>
 <script
+	src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.0.3/angular-sanitize.min.js"></script>
+<script
 	src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
 <script
 	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -22,14 +24,18 @@
 	src="http://cdnjs.cloudflare.com/ajax/libs/sugar/1.3.8/sugar.min.js"></script>
 <script src="controller.js"></script>
 </head>
-<body ng-app>
-	<a class="hidden-phone" href="https://github.com/mkroli"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+<body ng-app="ngSanitize">
+	<a class="hidden-phone" href="https://github.com/mkroli"><img
+		style="position: absolute; top: 0; right: 0; border: 0;"
+		src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
+		alt="Fork me on GitHub"></a>
 
 	<div class="container">
 		<div class="row">
 			<div class="span12 page-header">
 				<h1>
-					<img class="img-rounded" src="https://secure.gravatar.com/avatar/4ef56176ae6880333ec5b95eacb07436?s=80" />
+					<img class="img-rounded"
+						src="https://secure.gravatar.com/avatar/4ef56176ae6880333ec5b95eacb07436?s=80" />
 					mkroli<small class="hidden-phone">.github.com</small>
 				</h1>
 			</div>
@@ -53,7 +59,7 @@
 							ng-show="repository" id="{{nameToId(repository.name)}}">
 							<h3>{{repository.name}}</h3>
 							<p class="description"
-								ng-bind-html-unsafe="markdown(repository.description)" />
+								ng-bind-html="markdown(repository.description)" />
 
 							<div>
 								<a class="btn" ng-show="repository.links.length == 1"
@@ -65,8 +71,7 @@
 									</button>
 									<ul class="dropdown-menu">
 										<li ng-repeat="link in repository.links"><a
-											ng-href="{{link.url}}"
-											ng-bind-html-unsafe="markdown(link.name)"></a></li>
+											ng-href="{{link.url}}" ng-bind-html="markdown(link.name)"></a></li>
 									</ul>
 								</div>
 							</div>
