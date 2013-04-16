@@ -24,6 +24,8 @@
 	src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
 <script
 	src="http://cdnjs.cloudflare.com/ajax/libs/sugar/1.3.9/sugar.min.js"></script>
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/lunr.js/0.3.0/lunr.min.js"></script>
 <script src="controller.coffee" type="text/coffeescript"></script>
 </head>
 <body>
@@ -44,9 +46,14 @@
 		</div>
 		<div class="row" ng-controller="RepositoriesController" ng-cloak>
 			<div class="span3 affix-top" data-spy="affix" data-offset-top="140">
+				<form class="form-search">
+					<input type="text" class="input-block-level search-query"
+						placeholder="Search..." ng-model="queryString"
+						ng-change="search(queryString)" autofocus>
+				</form>
 				<ul class="nav nav-tabs nav-stacked">
 					<li ng-repeat="repository in repositories"><a
-						ng-href="#{{nameToId(repository.name)}}">{{repository.name}}</a></li>
+						ng-href="#{{repository.id.replace(' ', '_')}}">{{repository.id}}</a></li>
 				</ul>
 			</div>
 			<div class="span3"></div>
@@ -58,8 +65,8 @@
 					<h2>{{category.category}}</h2>
 					<div class="row-fluid" ng-repeat="grouped in category.repositories">
 						<div class="span6" ng-repeat="repository in grouped"
-							ng-show="repository" id="{{nameToId(repository.name)}}">
-							<h3>{{repository.name}}</h3>
+							ng-show="repository" id="{{repository.id.replace(' ', '_')}}">
+							<h3>{{repository.id}}</h3>
 							<p class="description"
 								ng-bind-html="markdown(repository.description)" />
 
