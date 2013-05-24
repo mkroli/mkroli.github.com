@@ -1,3 +1,11 @@
+h1 {
+	font-family: 'Lobster', cursive;
+}
+
+body {
+	font-family: 'Droid Sans', sans-serif;
+}
+
 .doc-separator {
 	margin: 20px 0 40px;
 }
