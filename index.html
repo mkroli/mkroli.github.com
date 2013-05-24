@@ -71,7 +71,7 @@
 							ng-show="repository" id="{{repository.id.replace(' ', '_')}}">
 							<h3>{{repository.id}}</h3>
 							<p class="description"
-								ng-bind-html="markdown(repository.description)" />
+								ng-bind-html="repository.descriptionP" />
 
 							<div>
 								<a class="btn" ng-show="repository.links.length == 1"
@@ -83,7 +83,7 @@
 									</button>
 									<ul class="dropdown-menu">
 										<li ng-repeat="link in repository.links"><a
-											ng-href="{{link.url}}" ng-bind-html="markdown(link.name)"></a></li>
+											ng-href="{{link.url}}" ng-bind-html="link.nameP"></a></li>
 									</ul>
 								</div>
 							</div>

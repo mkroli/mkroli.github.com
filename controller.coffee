@@ -8,8 +8,16 @@ window.RepositoriesController = ($scope) ->
     "PAM" : "http://en.wikipedia.org/wiki/Pluggable_Authentication_Modules"
     "Brainfuck" : "http://en.wikipedia.org/wiki/Brainfuck"
     "Ook!" : "http://www.dangermouse.net/esoteric/ook.html"
+    "Naive Bayes classifier" : "http://en.wikipedia.org/wiki/Naive_Bayes_classifier"
 
   repositories =
+    "MnoClassifier":
+      category: "Projects"
+      description: "MnoClassifier learns MSISDN-Operator combinations to afterwards predict Operators. It is implemented using a [Naive Bayes classifier]. It provides an HTTP/REST API and comes along with an HTML user interface."
+      keywords: "scala machine learning artificial intelligence"
+      links: [
+        (name: "Repository", url: "https://github.com/mkroli/mnoclassifier")
+      ]
     "number-series-solver":
       category: "Projects"
       description: "Number-series-solver can detect patterns in number series. It gives the found algorithm as well as the number which it thinks would come next."
@@ -29,7 +37,7 @@ window.RepositoriesController = ($scope) ->
     "Longest Prefix Match":
       category: "Projects"
       description: "Longest Prefix Match is an implementation of an associative array which doesn't associate keys to values using either the equals() or the hashCode(). Instead it compares the beginning of a String with the containing keys. The longest possible match will be associated and the value be returned."
-      keywords: "scala library"
+      keywords: "scala library lpm"
       links: [
         (name: "Project Page", url: "http://mkroli.github.com/lpm/")
         (name: "Repository", url: "https://github.com/mkroli/lpm")
@@ -119,8 +127,13 @@ window.RepositoriesController = ($scope) ->
       ]
 
   urlsMarkdown = ("[#{key}]: #{value}" for key, value of markdownUrls).join("\n")
-  converter = new Showdown.converter
-  $scope.markdown = (str) -> converter.makeHtml "#{str}\n#{urlsMarkdown}"
+
+  for id, repository of repositories
+    converter = new Showdown.converter
+    markdown = (str) -> converter.makeHtml "#{str}\n#{urlsMarkdown}"
+    process = (str) -> markdown(str)
+    repository.descriptionP = process(repository.description)
+    repository.links.each (link) -> link.nameP = process(link.name)
 
   merge = (id, doc) ->
     result = (id: id)
