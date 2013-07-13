@@ -11,12 +11,21 @@ window.RepositoriesController = ($scope) ->
     "Naive Bayes classifier" : "http://en.wikipedia.org/wiki/Naive_Bayes_classifier"
 
   repositories =
+    "Domain-Search-System":
+      category: "Projects"
+      description: "The DSS (Domain-Search-System) adds search to DNS (Domain-Name-System)."
+      keywords: "scala lucene"
+      links: [
+        (name: "Repository", url: "https://github.com/mkroli/domain-search-system")
+        (name: "Download", url: "https://github.com/mkroli/domain-search-system/releases")
+      ]
     "MnoClassifier":
       category: "Projects"
       description: "MnoClassifier learns MSISDN-Operator combinations to afterwards predict Operators. It is implemented using a [Naive Bayes classifier]. It provides an HTTP/REST API and comes along with an HTML user interface."
       keywords: "scala machine learning artificial intelligence"
       links: [
         (name: "Repository", url: "https://github.com/mkroli/mnoclassifier")
+        (name: "Download", url: "https://github.com/mkroli/mnoclassifier/releases")
       ]
     "number-series-solver":
       category: "Projects"
@@ -25,6 +34,7 @@ window.RepositoriesController = ($scope) ->
       links: [
         (name: "Web Start", url: "http://content.wuala.com/contents/mkroli/public/number-series-solver/number-series-solver.jnlp")
         (name: "Repository", url: "https://github.com/mkroli/number-series-solver")
+        (name: "Download", url: "https://github.com/mkroli/number-series-solver/releases")
       ]
     "scrooge-maven-plugin":
       category: "Projects"
@@ -49,6 +59,7 @@ window.RepositoriesController = ($scope) ->
       keywords: "scala turing machine"
       links: [
         (name: "Repository", url: "https://github.com/mkroli/brainfuck")
+        (name: "Download", url: "https://github.com/mkroli/brainfuck/releases")
       ]
     "RotatingCounter":
       category: "Projects"
