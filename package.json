@@ -1,0 +1,16 @@
+{
+	"name": "mkroli.github.io",
+	"version": "0.1.0",
+	"devDependencies": {
+		"grunt": "*",
+		"grunt-bower-task": "*",
+		"grunt-contrib-cssmin": "*",
+		"grunt-contrib-coffee": "*",
+		"grunt-ngmin": "*",
+		"grunt-contrib-uglify": "*",
+		"grunt-contrib-stylus": "*",
+		"grunt-contrib-jade": "*",
+		"grunt-combopage": "*",
+		"grunt-gh-pages": "*"
+	}
+}

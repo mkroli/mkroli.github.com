@@ -1,0 +1,53 @@
+doctype 5
+html(ng-app="mkroli", lang="en")
+  head
+    title= "Michael Krolikowski's GitHub Profile"
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(href="http://fonts.googleapis.com/css?family=Lobster|Droid+Sans", rel="stylesheet", type="text/css", ignore="true")
+    link(href="combined.css", rel="stylesheet", type="text/css")
+    script(src="combined.js")
+  body
+    a.hidden-xs.hidden-sm(href="https://github.com/mkroli")
+      img(style="position: absolute; top: 0; right: 0; border: 0;", src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png", alt="Fork me on GitHub")
+    .container
+      .row
+        .col-md-12.page-header
+          h1
+            img.img-rounded(src="https://secure.gravatar.com/avatar/4ef56176ae6880333ec5b95eacb07436?s=80", height="80")
+            |  mkroli
+            small= ".github.io"
+      .row(ng-controller="RepositoriesController", ng-cloak)
+        .col-md-3.affix-top(data-spy="affix", data-offset-top="140")
+          .form-group
+            input.form-control(type="search", placeholder="Search...", ng-model="queryString", ng-change="search(queryString)", autofocus)
+          ul.list-group
+            a.list-group-item(ng-repeat="repository in repositories", ng-href="\#{{repository.id.replace(' ', '_')}}")= "{{repository.id}}"
+        .col-md-3
+        .col-md-9
+          div(ng-repeat="category in inGroupsByCategory")
+            hr.doc-separator(ng-hide="$first")
+            h2= "{{category.category}}"
+            .row(ng-repeat="grouped in category.repositories")
+              .col-md-6(ng-repeat="repository in grouped", ng-show="repository", id="{{repository.id.replace(' ', '_')}}")
+                .panel.panel-default
+                  .panel-heading
+                    h3.panel-title= "{{repository.id}}"
+                  .panel-body
+                    .description(ng-bind-html="repository.descriptionP")
+                    a.btn.btn-default(ng-show="repository.links.length == 1", ng-href="{{repository.links.first().url}}")= "{{repository.links.first().name}}"
+                    .btn-group(ng-show="repository.links.length > 1")
+                      a.btn.btn-default(ng-href="{{repository.links.first().url}}")= "{{repository.links.first().name}}"
+                      button.btn.btn-default.dropdown-toggle(data-toggle="dropdown")
+                        span.caret
+                      ul.dropdown-menu
+                        li(ng-repeat="link in repository.links")
+                          a(ng-href="{{link.url}}", ng-bind-html="link.nameP")
+      #footer.row
+        .col-xs-12.vcard
+          | &copy; 2013
+          span.fn= "Michael Krolikowski"
+          span.nickname(style="display: none;")= "mkroli"
+          a.url(style="display: none;", href="http://mkroli.github.io")
+          | 
+          a.url(rel="me", target="_blank", href="http://www.xing.com/profile/Michael_Krolikowski")
+            img(src="http://www.xing.com/img/buttons/10_en_btn.gif", width="85", height="23", alt="Michael Krolikowski")

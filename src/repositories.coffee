@@ -1,15 +1,4 @@
-window.RepositoriesController = ($scope) ->
-  markdownUrls =
-    "Maven" : "http://maven.apache.org/"
-    "Scrooge" : "https://github.com/twitter/scrooge"
-    "Thrift" : "http://thrift.apache.org/"
-    "Java" : "http://www.oracle.com/technetwork/java/index.html"
-    "Scala" : "http://www.scala-lang.org/"
-    "PAM" : "http://en.wikipedia.org/wiki/Pluggable_Authentication_Modules"
-    "Brainfuck" : "http://en.wikipedia.org/wiki/Brainfuck"
-    "Ook!" : "http://www.dangermouse.net/esoteric/ook.html"
-    "Naive Bayes classifier" : "http://en.wikipedia.org/wiki/Naive_Bayes_classifier"
-
+angular.module('mkroli.repositories', []).factory 'repositories', ->
   repositories =
     "Domain-Search-System":
       category: "Projects"
@@ -137,6 +126,17 @@ window.RepositoriesController = ($scope) ->
         (name: "Original homepage", url: "http://abook.sourceforge.net/")
       ]
 
+  markdownUrls =
+    "Maven" : "http://maven.apache.org/"
+    "Scrooge" : "https://github.com/twitter/scrooge"
+    "Thrift" : "http://thrift.apache.org/"
+    "Java" : "http://www.oracle.com/technetwork/java/index.html"
+    "Scala" : "http://www.scala-lang.org/"
+    "PAM" : "http://en.wikipedia.org/wiki/Pluggable_Authentication_Modules"
+    "Brainfuck" : "http://en.wikipedia.org/wiki/Brainfuck"
+    "Ook!" : "http://www.dangermouse.net/esoteric/ook.html"
+    "Naive Bayes classifier" : "http://en.wikipedia.org/wiki/Naive_Bayes_classifier"
+
   urlsMarkdown = ("[#{key}]: #{value}" for key, value of markdownUrls).join("\n")
 
   for id, repository of repositories
@@ -146,29 +146,4 @@ window.RepositoriesController = ($scope) ->
     repository.descriptionP = process(repository.description)
     repository.links.each (link) -> link.nameP = process(link.name)
 
-  merge = (id, doc) ->
-    result = (id: id)
-    result[k] = v for k, v of doc
-    result
-
-  searchIndex = lunr () ->
-    this.ref('id')
-    this.field 'id', (boost: 3)
-    this.field 'keywords', (boost: 2)
-    this.field 'description'
-  for id, repo of repositories
-    searchIndex.add merge id, repo
-
-  $scope.search = (query) ->
-    if(query.length == 0)
-      $scope.repositories =
-        merge id, repo for id, repo of repositories
-    else
-      $scope.repositories =
-        merge result.ref, repositories[result.ref] for result in searchIndex.search(query)
-    $scope.inGroupsByCategory =
-      for c, r of (repo for id, repo of $scope.repositories).groupBy('category')
-        (category: c, repositories: r.inGroupsOf 2)
-  $scope.search("")
-
-angular.bootstrap document, ['ngSanitize']
+  repositories
