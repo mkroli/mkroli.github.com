@@ -31,6 +31,7 @@ module.exports = (grunt) ->
     "gh-pages":
       options:
         base: 'dist'
+        branch: 'master'
       src: '*'
 
   grunt.loadNpmTasks(task) for task in [
