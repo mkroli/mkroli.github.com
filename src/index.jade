@@ -31,7 +31,10 @@ html(ng-app="mkroli", lang="en")
               .col-md-6(ng-repeat="repository in grouped", ng-show="repository", id="{{repository.id.replace(' ', '_')}}")
                 .panel.panel-default
                   .panel-heading
-                    h3.panel-title= "{{repository.id}}"
+                    h3.panel-title
+                     span= "{{repository.id}}"
+                     a.buildStatus(ng-show="repository.buildStatusLink", href="{{repository.buildStatusLink}}")
+                       img(src="{{repository.buildStatusImage}}")
                   .panel-body
                     .description(ng-bind-html="repository.descriptionP")
                     a.btn.btn-default(ng-show="repository.links.length == 1", ng-href="{{repository.links.first().url}}")= "{{repository.links.first().name}}"

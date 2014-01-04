@@ -1,6 +1,8 @@
 angular.module('mkroli.repositories', []).factory 'repositories', ->
   repositories =
     "Domain-Search-System":
+      buildStatusLink: "https://travis-ci.org/mkroli/domain-search-system"
+      buildStatusImage: "https://travis-ci.org/mkroli/domain-search-system.png?branch=master"
       category: "Projects"
       description: "The DSS (Domain-Search-System) adds search to DNS (Domain-Name-System)."
       keywords: "scala lucene"
@@ -34,13 +36,14 @@ angular.module('mkroli.repositories', []).factory 'repositories', ->
         (name: "Repository", url: "https://github.com/mkroli/scrooge-maven-plugin")
       ]
     "Longest Prefix Match":
+      buildStatusLink: "http://travis-ci.org/mkroli/lpm"
+      buildStatusImage: "https://api.travis-ci.org/mkroli/lpm.png?branch=master"
       category: "Projects"
       description: "Longest Prefix Match is an implementation of an associative array which doesn't associate keys to values using either the equals() or the hashCode(). Instead it compares the beginning of a String with the containing keys. The longest possible match will be associated and the value be returned."
       keywords: "scala library lpm"
       links: [
         (name: "Project Page", url: "http://mkroli.github.com/lpm/")
         (name: "Repository", url: "https://github.com/mkroli/lpm")
-        (name: "Travis CI ![Build Status](https://api.travis-ci.org/mkroli/lpm.png?branch=master)", url: "http://travis-ci.org/mkroli/lpm")
       ]
     "Brainfuck":
       category: "Projects"

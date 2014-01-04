@@ -12,5 +12,8 @@
 		"grunt-contrib-jade": "*",
 		"grunt-combopage": "*",
 		"grunt-gh-pages": "*"
+	},
+	"scripts": {
+		"postinstall": "grunt"
 	}
 }
