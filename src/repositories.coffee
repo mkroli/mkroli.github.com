@@ -1,5 +1,16 @@
 angular.module('mkroli.repositories', []).factory 'repositories', ->
   repositories =
+    "dns4s":
+      buildStatusLink: "https://travis-ci.org/mkroli/dns4s"
+      buildStatusImage: "https://travis-ci.org/mkroli/dns4s.png?branch=master"
+      category: "Projects"
+      description: "DNS protocol implementation in Scala"
+      keywords: "scala dns"
+      links: [
+        (name: "Repository", url: "https://github.com/mkroli/dns4s")
+        (name: "Binaries", url: "https://bintray.com/mkroli/maven/dns4s")
+        (name: "Maven Repository", url: "http://dl.bintray.com/mkroli/maven")
+      ]
     "Domain-Search-System":
       buildStatusLink: "https://travis-ci.org/mkroli/domain-search-system"
       buildStatusImage: "https://travis-ci.org/mkroli/domain-search-system.png?branch=master"
